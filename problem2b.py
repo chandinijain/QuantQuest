@@ -4,7 +4,7 @@ import numpy as np
 import competitionToolbox as ct
 
 def settings():
-    markets = ['AAPL','IBM'] # Stocks to download data for. 
+    markets = [] # Stocks to download data for. 
     # markets = [] Leave empty array to download all stocks for the exchange (~900 stocks)
     # To have a look at all possible stocks go here: 
     # 
@@ -21,7 +21,7 @@ def trading_strategy(lookback_data):
     """
     :param lookback_data: Historical Data for the past "lookback" number of days as set in the main settings.
      It is a dictionary of features such as,
-     'OPEN', 'CLOSE', 'HIGH', 'LOW', 'VOLUME', 'SLIPPAGE', 'POSITION', 'ORDER',
+     'OPEN', 'CLOSE', 'HIGH', 'LOW', 'VOLUME', 'POSITION', 'ORDER',
      'FILLED_ORDER', 'DAILY_PNL', 'TOTAL_PNL', 'FUNDS', 'VALUE'
      Any feature data can be accessed as:lookback_data['OPEN']
      The output is a pandas dataframe with dates as the index (row)
