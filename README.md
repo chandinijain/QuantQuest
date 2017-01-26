@@ -3,18 +3,18 @@ This problem requires a mix of statistics and data analysis skills to create a p
 
 Once you download the auquanToolbox, clone or download this folder, which contains the files you need to run a backtest for this challenge.
 
- 1. [Problem 2.a ](https://github.com/chandinijain/QuantQuest#1-Problem 2.a)
- 2. [Problem 2.b ](https://github.com/chandinijain/QuantQuest#2-Problem 2.b)
- 3. [Data Format ](https://github.com/chandinijain/QuantQuest#3-Data Format) 
- 4. [Execution ](https://github.com/chandinijain/QuantQuest#4-Execution) 
- 5. [Backtesting and Debugging ](https://github.com/chandinijain/QuantQuest#5-Backtesting and Debugging) 
+ 1. [Problem 2.a ] (https://github.com/chandinijain/QuantQuest#1-problem-2a)
+ 2. [Problem 2.b ](https://github.com/chandinijain/QuantQuest#2-problem-2b)
+ 3. [Data Format ](https://github.com/chandinijain/QuantQuest#3-data-format) 
+ 4. [Execution ](https://github.com/chandinijain/QuantQuest#4-execution) 
+ 5. [Backtesting and Debugging ](https://github.com/chandinijain/QuantQuest#5-backtesting-and-debugging) 
 
 #1. Problem 2.a
 You are given a list of securities to trade.  Create a prediction model that uses the daily price data provided and returns a daily signal for every security: +1 for buy, -1 for sell or 0 for no opinion.
 Use file problem2a.py provided with the toolbox for this problem and complete the function trading_strategy().
 
 ###Input: 
-You are given 5 years of daily price and volume data of 50 random stocks.To help you get started with the challenge, we will also provide you with a set of features. (The list of features only serve as an introduction and are not exhaustive, you can create new features from the given price data). Read more about the data format [here](https://github.com/chandinijain/QuantQuest#3-Data Format).
+You are given 5 years of daily price and volume data of 50 random stocks.To help you get started with the challenge, we will also provide you with a set of features. (The list of features only serve as an introduction and are not exhaustive, you can create new features from the given price data). Read more about the data format [here](https://github.com/chandinijain/QuantQuest#3-data-format).
 
 ###Output format:
 Your code’s final output should be pandas dataframe with security symbol as rows and *SIGNAL* as columns:
@@ -42,9 +42,9 @@ You are now given $1,000,000 as starting funds and the same list of securities t
 Use file problem2b.py provided with the toolbox for this problem and complete the function trading_strategy().
 
 ###Input:
-You are given the same input as problem 2a,  5 years of daily price and volume data of 50 stocks and a set of features. (The list of features only serve as an introduction and are not exhaustive, you can create new features from the given price data). Read more about the data format [here](https://github.com/chandinijain/QuantQuest#3-Data Format).
+You are given the same input as problem 2a,  5 years of daily price and volume data of 50 stocks and a set of features. (The list of features only serve as an introduction and are not exhaustive, you can create new features from the given price data). Read more about the data format [here](https://github.com/chandinijain/QuantQuest#3-data-format).
 
-Order executions happen at OPEN price every day. The toolbox applies a commision of 10 cents per trade. Read more about execution and backtesting [here](https://github.com/chandinijain/QuantQuest#4-Execution).
+Order executions happen at OPEN price every day. The toolbox applies a commision of 10 cents per trade. Read more about execution and backtesting [here](https://github.com/chandinijain/QuantQuest#4-execution).
 
 ###Output format:
 Your code’s final output should be pandas dataframe with security symbol as rows and *SIGNAL* and *WEIGHTS* as columns. The weights, which are a number between 0 to 1, define percentage allocation of portfolio value to that security:
