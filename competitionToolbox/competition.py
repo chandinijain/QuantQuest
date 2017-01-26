@@ -8,12 +8,11 @@ import json
 PROBLEM2_ID = 'problem2'
 PROBLEM3_ID = 'problem3'
 
-def runSolution(markets, lookback, trading_strategy, date_start, date_end, problem_id, verbose=False):
+def runSolution(markets, lookback, trading_strategy, date_start, date_end, problem_id, isJson=False, verbose=False):
     budget=1000000
     base_index='INX'
     exchange = 'abcd'
     logger = at.get_logger()
-    json = False
 
     if updateCheck():
         logger.warn('Your version of quantquestToolbox is not the most updated.' +
@@ -165,7 +164,7 @@ def runSolution(markets, lookback, trading_strategy, date_start, date_end, probl
     else:
         budget = 1
 
-    if json:
+    if isJson:
         if base_index:
             baseline_data = at.baseline(exchange, base_index, date_range, logger)
             return writejson({feature: data[start_index-1: end+1] for feature, data in back_data.items()},budget,{feature: data[start_index-1: end+1] for feature, data in baseline_data.items()}, base_index)
