@@ -80,7 +80,7 @@ Final points for this problem are relative. I.e. the contestant with highest sco
 
 #3. Data Format:
 
-Securities are labeled as a1,a2...b1,b2....j1,j2..
+Securities are labeled as a1,a2...b1,b2....j1,j2.. Full list of securities is available [here](https://github.com/Auquan/auquan-historical-data/blob/master/abcd/abcd.txt)
 
 The names and dates for all securities are scrambled. A group of securities starting with the same alphabet denote that they belong to the same sector(i.e. energy, utilities, technology etc).
 
