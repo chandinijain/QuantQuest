@@ -8,6 +8,7 @@ auquanToolbox.egg-info
 build
 dist
 test*.py
+quantquestToolbox.egg-info
 
 # Windows image file caches
 Thumbs.db

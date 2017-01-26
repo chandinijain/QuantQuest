@@ -2,6 +2,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import pandas as pd
 import numpy as np
 import auquanToolbox as at
+import urllib2
+import json
 
 PROBLEM2_ID = 'problem2'
 PROBLEM3_ID = 'problem3'
@@ -12,6 +14,12 @@ def runSolution(markets, lookback, trading_strategy, date_start, date_end, probl
     exchange = 'abcd'
     logger = at.get_logger()
     json = False
+
+    if updateCheck():
+        logger.warn('Your version of quantquestToolbox is not the most updated.' +
+            ' If you are using pip, please use \'pip install -U quantquestToolbox\'.' + 
+            ' If you downloaded the package, you need to go to https://github.com/Auquan/quantquest-toolbox-python'+
+            ' to redownload that package.')
 
     try:
         assert(problem_id in [PROBLEM2_ID, PROBLEM3_ID])
@@ -190,3 +198,24 @@ def writejson(back_data,budget,baseline_data,base_index):
          'metrics_values':stats.values(),\
          'score':stats[k]}
     return d;
+
+def updateCheck():
+    ''' checks for new version of toolbox
+    Returns:
+        returns True if the version of the toolox on PYPI is not the same as the current version
+        returns False if version is the same
+    '''
+
+    from competitionToolbox.version import __version__
+    updateStr = ''
+    try:
+        toolboxJson = urllib2.urlopen('https://pypi.python.org/pypi/quantquestToolbox/json')
+    except Exception as e:
+        return False
+
+    toolboxDict = json.loads(toolboxJson.read())
+
+    if __version__ != toolboxDict['info']['version']:
+        return True
+    else:
+        return False
