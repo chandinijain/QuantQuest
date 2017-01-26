@@ -6,7 +6,7 @@ import auquanToolbox as at
 def runSolution(markets, lookback, trading_strategy,verbose=False):
     budget=1000000
     base_index='SPX'
-    exchange = 'nasdaq'
+    exchange = 'abcd'
     date_start = '01-01-2010'
     date_end = '31-12-2014'
     logger = at.get_logger()
