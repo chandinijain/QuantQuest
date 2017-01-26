@@ -3,14 +3,21 @@ import pandas as pd
 import numpy as np
 import auquanToolbox as at
 
-def runSolution(markets, lookback, trading_strategy,verbose=False):
+PROBLEM2_ID = 'problem2'
+PROBLEM3_ID = 'problem3'
+
+def runSolution(markets, lookback, trading_strategy, date_start, date_end, problem_id, verbose=False):
     budget=1000000
     base_index='INX'
     exchange = 'abcd'
-    date_start = '01-01-2010'
-    date_end = '31-12-2014'
     logger = at.get_logger()
     json = False
+
+    try:
+        assert(problem_id in [PROBLEM2_ID, PROBLEM3_ID])
+    except AssertionError:
+        logget.exception("Problem id is invalid")
+        raise
 
     if at.updateCheck():
         logger.warn('Your version of auquanToolbox is not the most updated.' +
@@ -78,11 +85,11 @@ def runSolution(markets, lookback, trading_strategy,verbose=False):
         slippage = 0*price_curr
         position_last = back_data['POSITION'].iloc[end - 1].astype(int)
         value = budget_curr + margin_curr + (position_last * open_curr).sum()
-        if 'WEIGHTS' in order.columns:
+        if problem_id == PROBLEM3_ID:
             try:
                 assert(order['WEIGHTS']>=0).all() 
             except AssertionError:
-                logger.info("Please check weights. Weights cannot be negative and should sum to <= 1")
+                logger.info("Please check weights. Weights cannot be negative.")
                 raise
 
             if order['WEIGHTS'].sum()>1:
@@ -90,7 +97,7 @@ def runSolution(markets, lookback, trading_strategy,verbose=False):
 
             order['QUANTITY'] = at.getquantity(order, price_curr, slippage,value,position_last, logger)
             trading_costs = True
-            base_index = 'SPX'
+            base_index = 'INX'
         else:
             desired_position = order['SIGNAL']
             order['QUANTITY'] = desired_position - position_last
@@ -141,11 +148,11 @@ def runSolution(markets, lookback, trading_strategy,verbose=False):
             '------------------------------------'
             logger.info(s)
         
-        if 'WEIGHTS' in order.columns and value_curr<=0:
+        if problem_id == PROBLEM3_ID and value_curr<=0:
             logger.info('Out of funds. Exiting!')
             break
             
-    if 'WEIGHTS' in order.columns:
+    if problem_id == PROBLEM3_ID:
         logger.info('Final Portfolio Value: %0.2f'%value_curr)
     else:
         budget = 1
