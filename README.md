@@ -1,3 +1,5 @@
+This is the official toolbox for the [Quant Quest Competition](http://quant-quest.auquan.com) hosted by Auquan.
+
 #Trading Problem Overview
 This problem requires a mix of statistics and data analysis skills to create a predictive model using financial data. We will provide you with a toolbox and historical data to develop and test your strategy for the competition.
 
