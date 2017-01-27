@@ -1,7 +1,6 @@
 #Trading Problem Overview
-This problem requires a mix of statistics and data analysis skills to create a predictive model using financial data. We will provide you with a toolbox and historical data to develop and test your strategy. Instruction to download the toolbox are [here](https://github.com/Auquan/auquan-toolbox-python#1-installation).
+This problem requires a mix of statistics and data analysis skills to create a predictive model using financial data. We will provide you with a toolbox and historical data to develop and test your strategy for the competition.
 
-Once you download the auquanToolbox, clone or download this folder, which contains the files you need to run a backtest for this challenge.
  1. [Installation] (https://github.com/chandinijain/QuantQuest#1-installation)
  2. [Problem 2 ] (https://github.com/chandinijain/QuantQuest#2-problem-2)
  3. [Problem 3 ](https://github.com/chandinijain/QuantQuest#3-problem-3)
