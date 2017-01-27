@@ -179,9 +179,10 @@ def runSolution(markets, lookback, trading_strategy, date_start, date_end, probl
 
 def writejson(back_data,budget,baseline_data,base_index):
 
+    stats = at.metrics(daily_return, total_return, baseline_data,base_index)
+    # multiply by 100 for readability purposes
     daily_return = back_data['DAILY_PNL']*100/budget
     total_return = back_data['TOTAL_PNL']*100/budget
-    stats = at.metrics(daily_return, total_return, baseline_data,base_index)
     if base_index:
         k = 'Sharpe Ratio'
     else:
